@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>C-Boys Admin · Weekly Plan & Community</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+  :root{
+    --asphalt:#14161A; --chalk:#F5F4F1; --chalk-dim:#C9C7C2; --red:#E4302A; --lime:#D6FF3C; --line:rgba(245,244,241,.12); --grey:#9A9DA3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,sans-serif;background:var(--asphalt);color:var(--chalk);min-height:100vh}
+  h1,h2,h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+  .top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:28px}
+  .top a{color:var(--chalk-dim);font-size:13px;text-decoration:none}
+  .top a:hover{color:var(--chalk)}
+  .badge{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--lime);text-transform:uppercase}
+  .card{background:#1D2026;border:1px solid var(--line);border-radius:8px;padding:22px;margin-bottom:20px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:6px}
+  input,textarea,select,button{font:inherit}
+  input,textarea,select{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+    color:var(--chalk);border-radius:4px;padding:11px 12px;margin-bottom:12px
+  }
+  textarea{min-height:84px;resize:vertical}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  button,.btn{
+    background:var(--red);color:var(--chalk);border:0;border-radius:4px;padding:12px 18px;
+    font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer
+  }
+  button.secondary,.btn.secondary{background:transparent;border:1px solid var(--line);color:var(--chalk)}
+  button.ghost{background:transparent;border:1px solid var(--line);color:var(--chalk-dim)}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .status{font-size:13px;color:var(--chalk-dim);margin-top:10px;min-height:1.2em}
+  .status.ok{color:var(--lime)}
+  .status.err{color:#ff8f88}
+  .login{max-width:420px;margin:12vh auto;padding:0 20px}
+  .day-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .day-head h3{font-size:28px}
+  .pill{font-family:'Space Mono',monospace;font-size:11px;color:var(--lime)}
+  .post{border-top:1px solid var(--line);padding:14px 0}
+  .post:first-child{border-top:0;padding-top:0}
+  .post .meta{font-family:'Space Mono',monospace;font-size:11px;color:var(--grey);margin-top:8px}
+  .empty{color:var(--grey);font-size:14px}
+  .hint{font-size:12.5px;line-height:1.55;color:var(--chalk-dim);margin-top:8px}
+  code{font-family:'Space Mono',monospace;font-size:12px;color:var(--lime)}
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:640px){.stats-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div id="login-view" class="login">
+    <div class="card">
+      <div class="badge">C-Boys control room</div>
+      <h1 style="font-size:42px;margin:12px 0 8px">Admin</h1>
+      <p class="hint">Edit the weekly plan and manage live community posts. Password is set in <code>config.js</code>.</p>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Enter admin password">
+      <div class="actions">
+        <button id="login-btn" type="button">Unlock panel</button>
+        <a class="btn secondary" href="./" style="display:inline-flex;align-items:center;text-decoration:none">Back to site</a>
+      </div>
+      <p class="status" id="login-status"></p>
+    </div>
+  </div>
+
+  <div id="admin-view" class="wrap" hidden>
+    <div class="top">
+      <div>
+        <div class="badge">Live club desk</div>
+        <h1 style="font-size:44px;margin-top:6px">Plan & Community</h1>
+      </div>
+      <div class="actions">
+        <a href="./">View site</a>
+        <button class="ghost" id="logout-btn" type="button">Lock</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:28px;margin-bottom:8px">Publish</h2>
+      <p class="hint">Save keeps a local draft on this device. <strong>Publish live</strong> syncs the plan and community wall for every visitor.</p>
+      <div class="actions">
+        <button id="save-local-btn" type="button" class="secondary">Save draft</button>
+        <button id="publish-btn" type="button">Publish live</button>
+        <button id="reload-btn" type="button" class="ghost">Reload live data</button>
+        <button id="export-btn" type="button" class="ghost">Download backup JSON</button>
+        <label class="btn secondary" for="import-file" style="display:inline-flex;align-items:center;cursor:pointer;margin:0;">Import backup</label>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p class="status" id="publish-status"></p>
+      <p class="hint">Live ID: <code id="blob-id">not published yet</code></p>
+      <p class="hint">Keep a JSON backup after big plan edits so your week is never only in the live cloud copy.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:28px;margin-bottom:8px">Site & Community stats</h2>
+      <p class="hint" style="margin-bottom:14px">These values update both the homepage stats below “Join the Club” and the Our Community section.</p>
+      <div class="stats-row">
+        <div>
+          <label for="stat-members">Active members</label>
+          <input id="stat-members" type="number" min="0" step="1">
+        </div>
+        <div>
+          <label for="stat-km">Km logged this month</label>
+          <input id="stat-km" type="number" min="0" step="1">
+        </div>
+        <div>
+          <label for="stat-sessions">Sessions / week</label>
+          <input id="stat-sessions" type="number" min="0" step="1">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:28px;margin-bottom:14px">Weekly plan</h2>
+      <div class="grid" id="plan-editor"></div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:28px;margin-bottom:14px">Community posts</h2>
+      <p class="hint" style="margin-bottom:14px">These are real submissions from the site form. Delete anything that shouldn’t stay public.</p>
+      <div id="community-list"></div>
+    </div>
+  </div>
+
+<script src="./config.js"></script>
+<script src="./js/store.js"></script>
+<script>
+  const DAYS = ["0","1","2","3","4","5","6"];
+  const loginView = document.getElementById("login-view");
+  const adminView = document.getElementById("admin-view");
+  const loginStatus = document.getElementById("login-status");
+  const publishStatus = document.getElementById("publish-status");
+  const planEditor = document.getElementById("plan-editor");
+  const communityList = document.getElementById("community-list");
+  const blobIdEl = document.getElementById("blob-id");
+
+  let data = null;
+
+  function setStatus(el, msg, type="") {
+    el.textContent = msg || "";
+    el.className = "status" + (type ? " " + type : "");
+  }
+
+  function unlock() {
+    loginView.hidden = true;
+    adminView.hidden = false;
+    sessionStorage.setItem("cboys-admin", "1");
+  }
+
+  function lock() {
+    sessionStorage.removeItem("cboys-admin");
+    adminView.hidden = true;
+    loginView.hidden = false;
+  }
+
+  function field(day, key, label, multiline=false) {
+    const id = `d${day}-${key}`;
+    const val = data.weekPlan?.[day]?.[key] ?? "";
+    if (multiline) {
+      return `<label for="${id}">${label}</label><textarea id="${id}" data-day="${day}" data-key="${key}">${escapeHtml(val)}</textarea>`;
+    }
+    return `<label for="${id}">${label}</label><input id="${id}" data-day="${day}" data-key="${key}" value="${escapeAttr(val)}">`;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+  }
+
+  function escapeAttr(str) {
+    return escapeHtml(str).replaceAll('"', "&quot;");
+  }
+
+  function renderPlan() {
+    planEditor.innerHTML = DAYS.map((day) => {
+      const item = data.weekPlan[day] || {};
+      return `
+        <div class="card" style="margin:0;background:#181b20">
+          <div class="day-head">
+            <h3>${item.label || day}</h3>
+            <span class="pill">day ${day}</span>
+          </div>
+          ${field(day, "label", "Label")}
+          ${field(day, "tag", "Tag")}
+          <label for="d${day}-tagType">Tag style</label>
+          <select id="d${day}-tagType" data-day="${day}" data-key="tagType">
+            ${["easy","hard","long","restt"].map((t) => `<option value="${t}" ${item.tagType===t?"selected":""}>${t}</option>`).join("")}
+          </select>
+          ${field(day, "dist", "Card distance line")}
+          ${field(day, "title", "Session title")}
+          ${field(day, "desc", "Session description", true)}
+          ${field(day, "pace", "Target pace")}
+          ${field(day, "dur", "Duration")}
+          ${field(day, "clock", "Clock display")}
+          ${field(day, "meet", "Meet line")}
+          <label><input type="checkbox" data-day="${day}" data-key="rest" ${item.rest ? "checked" : ""} style="width:auto;margin-right:8px"> Rest day card</label>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderCommunity() {
+    const posts = Array.isArray(data.community) ? data.community : [];
+    if (!posts.length) {
+      communityList.innerHTML = `<p class="empty">No live posts yet. When members submit on the site, they appear here.</p>`;
+      return;
+    }
+    communityList.innerHTML = posts.map((post) => `
+      <div class="post" data-id="${escapeAttr(post.id)}">
+        <p>${escapeHtml(post.message)}</p>
+        <div class="meta">${escapeHtml(post.name)} · ${new Date(post.createdAt).toLocaleString()}
+          <button type="button" class="ghost" data-delete="${escapeAttr(post.id)}" style="margin-left:10px;padding:6px 10px">Delete</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderStats() {
+    document.getElementById("stat-members").value = data.stats?.members ?? 0;
+    document.getElementById("stat-km").value = data.stats?.kmMonth ?? 0;
+    document.getElementById("stat-sessions").value = data.stats?.sessionsWeek ?? 4;
+  }
+
+  function collectForm() {
+    const next = {
+      weekPlan: {},
+      community: Array.isArray(data.community) ? data.community : [],
+      stats: {
+        members: Number(document.getElementById("stat-members").value || 0),
+        kmMonth: Number(document.getElementById("stat-km").value || 0),
+        sessionsWeek: Number(document.getElementById("stat-sessions").value || 0)
+      },
+      updatedAt: data.updatedAt || null
+    };
+
+    DAYS.forEach((day) => {
+      const base = data.weekPlan[day] || {};
+      next.weekPlan[day] = { ...base };
+    });
+
+    adminView.querySelectorAll("[data-day][data-key]").forEach((el) => {
+      const day = el.dataset.day;
+      const key = el.dataset.key;
+      if (el.type === "checkbox") next.weekPlan[day][key] = el.checked;
+      else next.weekPlan[day][key] = el.value;
+    });
+
+    data = next;
+    return next;
+  }
+
+  async function boot() {
+    data = await CboysStore.loadData();
+    if (!data.weekPlan) data.weekPlan = {};
+    if (!data.community) data.community = [];
+    if (!data.stats) data.stats = { members: 0, kmMonth: 0, sessionsWeek: 4 };
+    renderStats();
+    renderPlan();
+    renderCommunity();
+    blobIdEl.textContent = CboysStore.getBlobId() || "not published yet";
+  }
+
+  document.getElementById("login-btn").addEventListener("click", () => {
+    const password = document.getElementById("password").value;
+    if (!CboysStore.checkAdminPassword(password)) {
+      setStatus(loginStatus, "Wrong password.", "err");
+      return;
+    }
+    setStatus(loginStatus, "");
+    unlock();
+    boot();
+  });
+
+  document.getElementById("password").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") document.getElementById("login-btn").click();
+  });
+
+  document.getElementById("logout-btn").addEventListener("click", lock);
+
+  document.getElementById("save-local-btn").addEventListener("click", async () => {
+    try {
+      const payload = collectForm();
+      const result = await CboysStore.saveData(payload, { publish: false });
+      data = result.data;
+      setStatus(publishStatus, "Draft saved on this device.", "ok");
+    } catch (err) {
+      setStatus(publishStatus, err.message || "Save failed", "err");
+    }
+  });
+
+  document.getElementById("publish-btn").addEventListener("click", async () => {
+    const btn = document.getElementById("publish-btn");
+    btn.disabled = true;
+    setStatus(publishStatus, "Publishing…");
+    try {
+      const payload = collectForm();
+      const result = await CboysStore.saveData(payload, { publish: true });
+      data = result.data;
+      blobIdEl.textContent = result.blobId || "not published yet";
+      setStatus(
+        publishStatus,
+        `Live sync on. If this is the first publish, paste Live ID into config.js (blobId) and redeploy once so every visitor shares the same wall.`,
+        "ok"
+      );
+    } catch (err) {
+      setStatus(publishStatus, err.message || "Publish failed — check your connection.", "err");
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  document.getElementById("reload-btn").addEventListener("click", async () => {
+    setStatus(publishStatus, "Reloading…");
+    await boot();
+    setStatus(publishStatus, "Reloaded.", "ok");
+  });
+
+  document.getElementById("export-btn").addEventListener("click", () => {
+    try {
+      const payload = collectForm();
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 10);
+      a.href = url;
+      a.download = `cboys-backup-${stamp}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      setStatus(publishStatus, "Backup downloaded.", "ok");
+    } catch (err) {
+      setStatus(publishStatus, err.message || "Backup failed", "err");
+    }
+  });
+
+  document.getElementById("import-file").addEventListener("change", async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const imported = JSON.parse(text);
+      if (!imported.weekPlan) throw new Error("Backup file is missing weekPlan");
+      data = {
+        weekPlan: imported.weekPlan,
+        community: Array.isArray(imported.community) ? imported.community : [],
+        stats: imported.stats || { members: 0, kmMonth: 0, sessionsWeek: 4 },
+        updatedAt: imported.updatedAt || null
+      };
+      renderStats();
+      renderPlan();
+      renderCommunity();
+      setStatus(publishStatus, "Backup imported. Click Publish live to sync for all visitors.", "ok");
+    } catch (err) {
+      setStatus(publishStatus, err.message || "Import failed", "err");
+    } finally {
+      e.target.value = "";
+    }
+  });
+
+  communityList.addEventListener("click", async (e) => {
+    const id = e.target.getAttribute("data-delete");
+    if (!id) return;
+    if (!confirm("Delete this community post?")) return;
+    try {
+      const result = await CboysStore.deleteCommunityPost(id);
+      data = result.data;
+      renderCommunity();
+      setStatus(publishStatus, "Post deleted.", "ok");
+    } catch (err) {
+      setStatus(publishStatus, err.message || "Delete failed", "err");
+    }
+  });
+
+  if (sessionStorage.getItem("cboys-admin") === "1") {
+    unlock();
+    boot();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="heroRed" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#9C201C"/>
+      <stop offset="100%" stop-color="#E4302A"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#heroRed)">
+    <path d="M150 40c-70 10-118 66-118 134s48 124 120 134c24 2 52-4 72-14l-18-44c-12 6-28 12-42 10-38-6-64-38-64-82s26-76 64-82c16-2 32 2 42 10l18-44c-22-14-48-22-74-22z"/>
+    <circle cx="318" cy="86" r="24"/>
+    <path d="M296 118l46 14 24 72 38-48 46 10-16 40-64 14-30 64-48-16 24-56-32-12z"/>
+    <rect x="250" y="140" width="38" height="10" rx="5"/>
+    <rect x="236" y="162" width="30" height="9" rx="4.5"/>
+    <rect x="258" y="182" width="22" height="8" rx="4"/>
+    <path d="M430 86c24-36 68-56 118-52 32 2 58 16 76 36l-36 34c-12-14-28-22-46-24-30-2-54 10-64 32-8 16-6 36 10 50 14 10 38 16 72 10l10 44c-52 10-102 2-134-24-40-34-46-86-6-106z"/>
+    <path d="M650 76h52v154c0 36 18 56 52 56h10v46h-18c-62 0-96-36-96-96V76z"/>
+    <text x="360" y="330" text-anchor="middle" fill="#E4302A" font-family="Arial Black, Arial, sans-serif" font-size="28" letter-spacing="10">C - BOYS</text>
+    <text x="360" y="372" text-anchor="middle" fill="#E4302A" font-family="Arial, sans-serif" font-size="18" letter-spacing="12">RUNNING CLUB</text>
+  </g>
+</svg>

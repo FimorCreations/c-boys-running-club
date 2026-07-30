@@ -1,30 +1,943 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>C-Boys Running Club — Portfolio Mock</title>
-  <meta name="description" content="C-Boys Running Club portfolio mock website">
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      background: #14161A;
-    }
-    .site-frame {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="C-Boys Running Club — free membership, weekly training plans, and group runs for every pace in Kimberley.">
+<meta name="theme-color" content="#14161A">
+<meta name="author" content="C-Boys Running Club">
+<link rel="canonical" href="https://fimorcreations.github.io/c-boys-running-club/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="C-Boys Running Club — Free Membership">
+<meta property="og:description" content="Free weekly training plans, group runs from 05:30 at Track Gate, Kimberley. Every pace welcome.">
+<meta property="og:image" content="https://fimorcreations.github.io/c-boys-running-club/assets/og-share.jpg">
+<meta property="og:url" content="https://fimorcreations.github.io/c-boys-running-club/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="C-Boys Running Club — Free Membership">
+<meta name="twitter:description" content="Free weekly training plans and group runs for every pace in Kimberley.">
+<meta name="twitter:image" content="https://fimorcreations.github.io/c-boys-running-club/assets/og-share.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>C-Boys Running Club — Free Membership</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  --asphalt: #14161A;
+  --asphalt-2: #1D2026;
+  --chalk: #F5F4F1;
+  --chalk-dim: #C9C7C2;
+  --red: #E4302A;
+  --red-dim: #9C201C;
+  --lime: #D6FF3C;
+  --grey: #9A9DA3;
+  --line: rgba(245,244,241,0.12);
+  --radius: 2px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--chalk);
+  color:var(--asphalt);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:'Anton',sans-serif;
+  font-weight:400;
+  letter-spacing:0.01em;
+  text-transform:uppercase;
+  line-height:0.95;
+}
+.mono{font-family:'Space Mono',monospace;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 32px;
+  transition:background .3s ease, padding .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.solid{
+  background:rgba(20,22,26,0.92);
+  backdrop-filter:blur(10px);
+  padding:12px 32px;
+  border-bottom:1px solid var(--line);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-brand img{height:34px;width:auto;max-width:120px;object-fit:contain;}
+.nav-brand span{
+  font-family:'Anton',sans-serif;color:var(--chalk);font-size:17px;letter-spacing:0.04em;
+}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{
+  color:var(--chalk-dim);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--chalk);}
+.nav-cta{
+  background:var(--red);color:var(--chalk);padding:10px 20px;font-size:13px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);
+  transition:background .2s, transform .15s;
+}
+.nav-cta:hover{background:#ff3d36;transform:translateY(-1px);}
+.nav-toggle{display:none;background:none;border:none;color:var(--chalk);font-size:24px;cursor:pointer;padding:6px;}
+.nav-link-cta{
+  display:none;background:var(--red);color:var(--chalk)!important;padding:12px 18px;text-align:center;
+  border-radius:var(--radius);margin-top:8px;
+}
+@media(max-width:860px){
+  .nav{padding:14px 20px;}
+  .nav.solid{padding:10px 20px;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+  .nav-cta{display:none;}
+  .nav-link-cta{display:block;}
+  .hero{padding:120px 0 64px;min-height:auto;}
+  .hero h1{font-size:clamp(42px, 12vw, 72px);}
+  .hero-sub{font-size:15.5px;}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .btn-primary,.btn-ghost,.btn-whatsapp{justify-content:center;}
+  .hero-stats{margin-top:48px;gap:28px 24px;}
+  .session-card{gap:28px;}
+  .stopwatch{width:180px;height:180px;}
+  .stopwatch .time{font-size:30px;}
+  .finish{padding:48px 22px;}
+  .join-form input{width:100%;max-width:100%;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  background:var(--asphalt);
+  color:var(--chalk);
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 0 80px;
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 40%;
+  filter:brightness(0.42) saturate(0.8) contrast(1.05);
+}
+.hero-media::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, rgba(20,22,26,0.94) 0%, rgba(20,22,26,0.78) 42%, rgba(20,22,26,0.55) 100%),
+    linear-gradient(180deg, rgba(20,22,26,0.35) 0%, transparent 28%, rgba(20,22,26,0.75) 100%);
+}
+.hero-lines{position:absolute;inset:0;z-index:1;opacity:0.35;}
+.hero-inner{position:relative;z-index:2;}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.15em;
+  color:var(--lime);text-transform:uppercase;margin-bottom:22px;
+}
+.hero-eyebrow .dot{width:7px;height:7px;background:var(--lime);border-radius:50%;animation:pulse 1.6s infinite ease-in-out;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+.hero h1{
+  font-size:clamp(52px, 9vw, 122px);
+  color:var(--chalk);
+  max-width:920px;
+}
+.hero h1 em{
+  font-style:normal;color:var(--red);
+  -webkit-text-stroke:0;
+}
+.hero-sub{
+  max-width:520px;margin-top:26px;font-size:17px;line-height:1.6;color:var(--chalk-dim);
+}
+.hero-actions{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--red);color:var(--chalk);padding:16px 30px;font-weight:700;font-size:14px;
+  letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);
+  display:inline-flex;align-items:center;gap:10px;transition:background .2s, transform .15s;
+}
+.btn-primary:hover{background:#ff3d36;transform:translateY(-2px);}
+.btn-ghost{
+  border:1px solid var(--line);color:var(--chalk);padding:16px 28px;font-weight:600;font-size:14px;
+  letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);
+  display:inline-flex;align-items:center;gap:10px;transition:border-color .2s, background .2s;
+}
+.btn-ghost:hover{border-color:var(--chalk);background:rgba(255,255,255,0.04);}
+.btn-whatsapp{
+  background:#1FAF5A;color:#fff;padding:16px 28px;font-weight:700;font-size:14px;
+  letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);
+  display:inline-flex;align-items:center;gap:10px;transition:background .2s, transform .15s;
+}
+.btn-whatsapp:hover{background:#24c567;transform:translateY(-2px);}
+.session-whatsapp{
+  margin-top:18px;position:relative;z-index:2;
+}
+.session-whatsapp a{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--lime);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.stopwatch .session-whatsapp a{font-size:11px;letter-spacing:0.04em;}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,auto);gap:48px;
+  margin-top:76px;padding-top:32px;border-top:1px solid var(--line);
+  max-width:800px;
+}
+.hero-stats .stat-num{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--chalk);}
+.hero-stats .stat-num .unit{color:var(--lime);font-size:15px;margin-left:2px;}
+.hero-stats .stat-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:6px;}
+@media(max-width:700px){.hero-stats{grid-template-columns:repeat(2,auto);gap:32px 40px;}}
+
+.hero-logo-wrap{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
+}
+.hero-logo-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg, var(--asphalt) 0%, transparent 42%, transparent 78%, var(--asphalt) 100%);
+}
+.hero-logo-mark{
+  position:absolute;right:5%;top:50%;transform:translateY(-48%);
+  width:min(38vw, 420px);height:auto;max-height:72vh;
+  object-fit:contain;object-position:center right;
+  opacity:0.18;
+}
+@media(max-width:1100px){.hero-logo-wrap{display:none;}}
+
+/* ---------- ROUTE SPINE ---------- */
+.route-section{position:relative;background:var(--chalk);}
+.spine-svg{
+  position:absolute;left:50%;top:0;bottom:0;width:2px;
+  transform:translateX(-50%);
+}
+.km-marker{
+  display:flex;align-items:center;gap:14px;
+  justify-content:center;
+  padding:54px 0 40px;
+}
+.km-marker .km-pin{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--asphalt);color:var(--chalk);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-weight:700;font-size:12px;
+  border:3px solid var(--red);flex-shrink:0;
+}
+.km-marker .km-text{
+  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--grey);
+}
+.km-marker .km-title{
+  font-family:'Anton',sans-serif;font-size:15px;letter-spacing:0.04em;color:var(--asphalt);
+}
+
+section.block{padding:10px 0 90px;}
+
+/* ---------- TODAY'S SESSION (KM1) ---------- */
+.session-card{
+  background:var(--asphalt);color:var(--chalk);border-radius:6px;
+  padding:44px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;
+  position:relative;overflow:hidden;
+}
+.session-card::before{
+  content:'';position:absolute;top:0;right:0;width:280px;height:280px;
+  background:radial-gradient(circle at top right, rgba(228,48,42,0.35), transparent 70%);
+}
+@media(max-width:760px){.session-card{grid-template-columns:1fr;padding:30px;}}
+.session-day{
+  font-family:'Space Mono',monospace;color:var(--lime);font-size:13px;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:14px;
+}
+.session-card h3{font-size:clamp(30px,4vw,44px);margin-bottom:14px;position:relative;z-index:2;}
+.session-desc{color:var(--chalk-dim);font-size:15px;line-height:1.7;max-width:420px;position:relative;z-index:2;}
+.session-meta{display:flex;gap:34px;margin-top:28px;flex-wrap:wrap;position:relative;z-index:2;}
+.session-meta div span{display:block;}
+.session-meta .val{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;}
+.session-meta .lab{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:4px;}
+.stopwatch{
+  align-self:center;justify-self:center;
+  border:1px solid var(--line);border-radius:50%;
+  width:220px;height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  position:relative;z-index:2;
+}
+.stopwatch .time{font-family:'Space Mono',monospace;font-size:38px;font-weight:700;letter-spacing:0.02em;}
+.stopwatch .cap{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);margin-top:8px;}
+.session-where{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:18px 28px;position:relative;z-index:2;
+}
+.session-where .loc-item{font-size:13px;color:var(--chalk-dim);line-height:1.45;}
+.session-where .loc-item strong{
+  display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--lime);margin-bottom:4px;font-weight:700;
+}
+.session-where a{color:var(--chalk);text-decoration:underline;text-underline-offset:3px;}
+
+/* ---------- WEEK (KM2) ---------- */
+.week-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:12px;
+}
+@media(max-width:920px){.week-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:560px){.week-grid{grid-template-columns:repeat(2,1fr);}}
+.day-card{
+  background:#fff;border:1px solid rgba(20,22,26,0.1);border-radius:4px;
+  padding:18px 14px;position:relative;min-height:190px;display:flex;flex-direction:column;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+}
+.day-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,22,26,0.12);border-color:var(--red);}
+.day-card.rest{background:repeating-linear-gradient(135deg, #fff, #fff 8px, #f1f0ed 8px, #f1f0ed 16px);}
+.day-card.is-today{
+  border-color:var(--red);
+  box-shadow:0 16px 34px rgba(228,48,42,0.16);
+  transform:translateY(-4px);
+}
+.day-card.is-today::before{
+  content:'TODAY';position:absolute;top:12px;right:12px;
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;
+  color:var(--red);font-weight:700;
+}
+.bib-num{
+  font-family:'Space Mono',monospace;font-size:11px;color:var(--grey);letter-spacing:0.05em;
+}
+.day-name{
+  font-family:'Anton',sans-serif;font-size:20px;margin-top:6px;
+}
+.day-type{
+  margin-top:auto;padding-top:14px;
+}
+.tag{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:5px 8px;border-radius:2px;margin-bottom:8px;
+}
+.tag.easy{background:rgba(214,255,60,0.35);color:#4c5c00;}
+.tag.hard{background:rgba(228,48,42,0.12);color:var(--red);}
+.tag.long{background:rgba(20,22,26,0.08);color:var(--asphalt);}
+.tag.restt{background:transparent;color:var(--grey);border:1px solid var(--line-light,#ddd);}
+.day-dist{font-family:'Space Mono',monospace;font-size:13px;color:var(--asphalt);}
+
+/* ---------- MEMBERSHIP (KM3) ---------- */
+.member-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+@media(max-width:820px){.member-grid{grid-template-columns:1fr;gap:36px;}}
+.member-copy h2{font-size:clamp(34px,5vw,54px);}
+.member-copy p{color:#54575e;font-size:15.5px;line-height:1.7;margin-top:16px;max-width:440px;}
+.price-tag{
+  display:inline-flex;align-items:baseline;gap:8px;margin-top:26px;
+}
+.price-tag .amt{font-family:'Space Mono',monospace;font-size:42px;font-weight:700;}
+.price-tag .per{color:var(--grey);font-size:13px;}
+.perk-list{display:flex;flex-direction:column;}
+.perk{
+  display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(20,22,26,0.1);
+}
+.perk:first-child{padding-top:0;}
+.perk-num{font-family:'Space Mono',monospace;color:var(--red);font-size:13px;font-weight:700;flex-shrink:0;width:26px;padding-top:2px;}
+.perk h4{font-family:'Inter',sans-serif;font-weight:700;font-size:15.5px;text-transform:none;}
+.perk p{color:#6b6e74;font-size:14px;margin-top:4px;line-height:1.55;}
+
+/* ---------- COMMUNITY (KM4) ---------- */
+.community{background:var(--asphalt);color:var(--chalk);border-radius:6px;padding:56px 44px;}
+@media(max-width:640px){.community{padding:36px 26px;}}
+.community-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:44px;}
+.community-top h2{font-size:clamp(30px,4vw,46px);color:var(--chalk);max-width:520px;}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px;}
+@media(max-width:760px){.metric-row{grid-template-columns:repeat(2,1fr);}}
+.metric{border-top:1px solid var(--line);padding-top:16px;}
+.metric .num{font-family:'Space Mono',monospace;font-size:30px;font-weight:700;color:var(--lime);}
+.metric .lab{font-size:11px;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;}
+.quote-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+@media(max-width:820px){.quote-row{grid-template-columns:1fr;}}
+.quote{border-left:2px solid var(--red);padding-left:18px;}
+.quote p{font-size:14.5px;line-height:1.6;color:var(--chalk-dim);}
+.quote .who{margin-top:14px;font-family:'Space Mono',monospace;font-size:12px;color:var(--chalk);}
+.quote .who span{color:var(--grey);}
+.community-empty{
+  border:1px dashed rgba(245,244,241,0.25);border-radius:4px;padding:28px 22px;
+  color:var(--chalk-dim);font-size:14.5px;line-height:1.6;
+}
+.community-form{
+  margin-top:36px;padding-top:28px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:1fr 1.4fr auto;gap:12px;align-items:start;
+}
+@media(max-width:760px){.community-form{grid-template-columns:1fr;}}
+.community-form h3{grid-column:1 / -1;font-size:28px;margin-bottom:4px;}
+.community-form .form-note{grid-column:1 / -1;color:var(--grey);font-size:13px;margin-bottom:6px;}
+.community-form input,.community-form textarea{
+  width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+  color:var(--chalk);border-radius:2px;padding:14px 16px;font:inherit;
+}
+.community-form textarea{min-height:52px;resize:vertical;}
+.community-form button{
+  background:var(--red);color:var(--chalk);border:0;border-radius:2px;padding:14px 20px;
+  font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap;
+}
+.community-form .form-status{grid-column:1 / -1;font-size:13px;color:var(--lime);min-height:1.2em;}
+.community-form .form-status.err{color:#ff8f88;}
+.foot-bottom a{color:var(--chalk-dim);text-decoration:underline;text-underline-offset:3px;}
+.foot-bottom a:hover{color:var(--chalk);}
+/* ---------- FINISH / JOIN ---------- */
+.finish{
+  background:var(--red);color:var(--chalk);border-radius:6px;
+  padding:70px 44px;text-align:center;position:relative;overflow:hidden;
+}
+.finish::before{
+  content:'FINISH';position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+  font-family:'Anton',sans-serif;font-size:180px;color:rgba(255,255,255,0.06);white-space:nowrap;
+}
+.finish h2{font-size:clamp(36px,6vw,64px);position:relative;z-index:2;}
+.finish p{max-width:460px;margin:16px auto 0;color:rgba(245,244,241,0.85);font-size:15.5px;position:relative;z-index:2;}
+.join-form{
+  display:flex;gap:10px;justify-content:center;margin-top:34px;flex-wrap:wrap;position:relative;z-index:2;
+}
+.join-form input{
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.3);color:var(--chalk);
+  padding:15px 18px;border-radius:2px;font-size:14px;width:280px;font-family:'Inter',sans-serif;
+}
+.join-form input::placeholder{color:rgba(245,244,241,0.6);}
+.join-form button{
+  background:var(--asphalt);color:var(--chalk);padding:15px 28px;border:none;border-radius:2px;
+  font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s;
+}
+.join-form button:hover{background:#000;}
+.finish-note{margin-top:18px;font-size:12px;color:rgba(245,244,241,0.7);position:relative;z-index:2;}
+.finish-privacy{
+  margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;
+  font-size:11.5px;line-height:1.55;color:rgba(245,244,241,0.65);position:relative;z-index:2;
+}
+.join-form .honey{position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden;}
+.join-success{
+  display:none;margin-top:28px;padding:18px 20px;border:1px solid rgba(255,255,255,0.25);
+  background:rgba(20,22,26,0.25);border-radius:4px;position:relative;z-index:2;
+}
+.join-success.show{display:block;}
+.join-success p{margin:0;color:var(--chalk);font-size:15px;}
+.info-panel{
+  background:#fff;border:1px solid rgba(20,22,26,0.1);border-radius:6px;
+  padding:36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:36px;
+}
+@media(max-width:760px){.info-panel{grid-template-columns:1fr;padding:28px 22px;gap:28px;}}
+.info-panel h3{font-size:clamp(26px,3.5vw,36px);margin-bottom:12px;}
+.info-panel p{color:#54575e;font-size:14.5px;line-height:1.65;}
+.info-panel ul{margin-top:14px;padding-left:18px;color:#54575e;font-size:14.5px;line-height:1.7;}
+.info-panel a{color:var(--red);text-decoration:underline;text-underline-offset:3px;}
+.faq-block{max-width:760px;margin:0 auto;}
+.faq-block h2{font-size:clamp(30px,4vw,46px);text-align:center;margin-bottom:28px;}
+.faq-item{
+  border-bottom:1px solid rgba(20,22,26,0.12);padding:4px 0;
+}
+.faq-item summary{
+  cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:15.5px;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:'+';font-family:'Space Mono',monospace;color:var(--red);font-size:18px;flex-shrink:0;
+}
+.faq-item[open] summary::after{content:'–';}
+.faq-item p{color:#54575e;font-size:14.5px;line-height:1.65;padding:0 0 18px;max-width:620px;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;margin-top:20px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;align-items:center;gap:12px;}
+.foot-brand img{height:38px;width:auto;max-width:140px;object-fit:contain;}
+.foot-brand span{font-family:'Anton',sans-serif;color:var(--chalk);font-size:18px;}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap;}
+.foot-col h5{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:12px;}
+.foot-col a{display:block;font-size:13.5px;color:var(--chalk-dim);margin-bottom:9px;transition:color .2s;}
+.foot-col a:hover{color:var(--chalk);}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12px;color:var(--grey);flex-wrap:wrap;gap:10px;}
+
+
+.nav-links.open{
+  display:flex;position:fixed;inset:72px 20px auto;flex-direction:column;gap:18px;
+  background:rgba(20,22,26,0.97);border:1px solid var(--line);border-radius:6px;
+  padding:24px;backdrop-filter:blur(12px);
+}
+.nav-links.open a{font-size:15px;}
+@media(max-width:860px){
+  .nav-links.open{display:flex;}
+}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .hero-eyebrow .dot{animation:none;}
+}
+
+/* section headers reused */
+.section-head{text-align:center;margin-bottom:10px;}
+</style>
 </head>
 <body>
-  <iframe
-    class="site-frame"
-    src="./c-boys-running-club.html"
-    title="C-Boys Running Club website"
-    loading="eager"
-  ></iframe>
+
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="./">
+    <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+    <span>C-BOYS RC</span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="#today">Today</a>
+    <a href="#week">The Plan</a>
+    <a href="#membership">Membership</a>
+    <a href="#community">Community</a>
+    <a href="#faq">FAQ</a>
+    <a href="#join" class="nav-link-cta">Join Free</a>
+  </div>
+  <a href="#join" class="nav-cta">Join Free</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img src="assets/hero.jpg" alt="" width="1920" height="1280" decoding="async" fetchpriority="high">
+  </div>
+  <svg class="hero-lines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="-100" y1="120" x2="700" y2="20" stroke="#E4302A" stroke-width="2"/>
+    <line x1="-100" y1="160" x2="620" y2="60" stroke="#E4302A" stroke-width="2" opacity="0.6"/>
+    <line x1="-100" y1="200" x2="540" y2="100" stroke="#E4302A" stroke-width="2" opacity="0.35"/>
+    <line x1="200" y1="780" x2="1000" y2="600" stroke="#F5F4F1" stroke-width="1" opacity="0.08"/>
+    <line x1="260" y1="820" x2="1080" y2="640" stroke="#F5F4F1" stroke-width="1" opacity="0.06"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> FREE MEMBERSHIP · OPEN TO ALL PACES</div>
+    <h1>Show up.<br>Run with <em>us.</em></h1>
+    <p class="hero-sub">C-Boys Running Club gives every member a free weekly training plan, a session to run today, and a pack that shows up rain or shine. No fees. No fine print. Just miles.</p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Join the Club — Free →</a>
+      <a href="#today" class="btn-ghost">See Today's Session</a>
+      <a class="btn-whatsapp" href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">Join WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num"><span id="hero-stat-members">0</span><span class="unit">runners</span></div>
+        <div class="stat-label">Active members</div>
+      </div>
+      <div>
+        <div class="stat-num"><span id="hero-stat-km">0</span><span class="unit">km</span></div>
+        <div class="stat-label">Logged this month</div>
+      </div>
+      <div>
+        <div class="stat-num">100<span class="unit">%</span></div>
+        <div class="stat-label">Free forever</div>
+      </div>
+      <div>
+        <div class="stat-num"><span id="hero-stat-sessions">4</span><span class="unit">/wk</span></div>
+        <div class="stat-label">Sessions per week</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-logo-wrap" aria-hidden="true"><img class="hero-logo-mark" src="assets/logo-hero.svg" alt="" loading="eager" decoding="async"></div>
+</header>
+
+<!-- ROUTE SPINE -->
+<div class="route-section">
+
+  <!-- KM1 -->
+  <div class="km-marker" id="today">
+    <div class="km-pin">KM<br>01</div>
+    <div>
+      <div class="km-text">You are here</div>
+      <div class="km-title">Today's Session</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="session-card">
+        <div>
+          <div class="session-day" id="session-day">THURSDAY · 03 JUL</div>
+          <h3 id="session-title">Tempo Run</h3>
+          <p class="session-desc" id="session-desc">15 min easy warm-up, then 20 minutes at a "comfortably hard" pace — you should be able to speak in short sentences, not paragraphs. Close with a 10 min easy cool-down.</p>
+          <div class="session-meta">
+            <div><span class="val" id="session-dist">8.2 km</span><span class="lab">Distance</span></div>
+            <div><span class="val" id="session-pace">5:40</span><span class="lab">Target pace /km</span></div>
+            <div><span class="val" id="session-dur">45 min</span><span class="lab">Duration</span></div>
+          </div>
+        </div>
+        <div class="stopwatch">
+          <div class="time" id="session-clock">00:45:00</div>
+          <div class="cap" id="session-meet">Group meets 05:30 · Track Gate</div>
+          <div class="session-whatsapp">
+            <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">Join WhatsApp group →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KM2 -->
+  <div class="km-marker" id="week">
+    <div class="km-pin">KM<br>02</div>
+    <div>
+      <div class="km-text">This week's route</div>
+      <div class="km-title">7-Day Training Plan</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="week-grid" id="week-grid"></div>
+    </div>
+  </section>
+
+  <!-- KM3 -->
+  <div class="km-marker" id="membership">
+    <div class="km-pin">KM<br>03</div>
+    <div>
+      <div class="km-text">No cost, no catch</div>
+      <div class="km-title">Free Membership</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="member-grid">
+        <div class="member-copy">
+          <h2>Everything a runner needs. Nothing you pay for.</h2>
+          <p>C-Boys is built on one rule: running is better together, and better when it's open to everyone. Free membership unlocks the full club experience — for good.</p>
+          <div class="price-tag">
+            <span class="amt">R0</span>
+            <span class="per">/ month, forever</span>
+          </div>
+        </div>
+        <div class="perk-list">
+          <div class="perk">
+            <div class="perk-num">01</div>
+            <div><h4>Daily &amp; weekly training plans</h4><p>A new session every day, built around easy runs, tempo work, intervals and long runs.</p></div>
+          </div>
+          <div class="perk">
+            <div class="perk-num">02</div>
+            <div><h4>Group sessions, 4x a week</h4><p>Meet the pack at the track gate — every pace welcome, from first-5k to marathon.</p></div>
+          </div>
+          <div class="perk">
+            <div class="perk-num">03</div>
+            <div><h4>Progress &amp; pace tracking</h4><p>Log your runs and watch your average pace and weekly distance improve over time.</p></div>
+          </div>
+          <div class="perk">
+            <div class="perk-num">04</div>
+            <div><h4>Club kit discounts</h4><p>Member pricing on C-Boys singlets, caps and race-day gear.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KM4 -->
+  <div class="km-marker" id="community">
+    <div class="km-pin">KM<br>04</div>
+    <div>
+      <div class="km-text">The pack, in numbers</div>
+      <div class="km-title">Our Community</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="community">
+        <div class="community-top">
+          <h2 id="community-heading">The pack is building. Be voice one.</h2>
+        </div>
+        <div class="metric-row">
+          <div class="metric"><div class="num" id="stat-members-view">0</div><div class="lab">Active members</div></div>
+          <div class="metric"><div class="num" id="stat-km-view">0</div><div class="lab">Km logged this month</div></div>
+          <div class="metric"><div class="num">100%</div><div class="lab">Free forever</div></div>
+          <div class="metric"><div class="num" id="stat-sessions-view">4</div><div class="lab">Sessions per week</div></div>
+        </div>
+        <div class="quote-row" id="community-feed">
+          <div class="community-empty">No member posts yet. Share a race story, a first 5K, or why you showed up — this wall is live.</div>
+        </div>
+        <form class="community-form" id="community-form">
+          <h3>Share with the pack</h3>
+          <p class="form-note">Real posts only — your message goes live on this wall for the club to see.</p>
+          <input type="text" name="name" id="community-name" placeholder="Your name" required maxlength="60" autocomplete="nickname">
+          <textarea name="message" id="community-message" placeholder="How has C-Boys helped your running?" required maxlength="280"></textarea>
+          <button type="submit">Post →</button>
+          <div class="form-status" id="community-status" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <div class="km-marker" id="safety">
+    <div class="km-pin">KM<br>05</div>
+    <div>
+      <div class="km-text">Run smart</div>
+      <div class="km-title">Safety Guide</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="info-panel" style="grid-template-columns:1fr;">
+        <div>
+          <h3>Safety guide</h3>
+          <p>We run as a pack. Stay with your pace group, carry water on longer sessions, and tell a captain if you peel off early. Session meeting details for each day are shown in <a href="#today">Today’s Session</a>.</p>
+          <ul>
+            <li>Listen to session leads on route changes</li>
+            <li>Use sidewalks / track lanes where marked</li>
+            <li>Wear reflective kit for early mornings</li>
+            <li>In an emergency, call local services first, then message the <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp group</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <div class="km-marker" id="faq">
+    <div class="km-pin">KM<br>06</div>
+    <div>
+      <div class="km-text">Before you lace up</div>
+      <div class="km-title">FAQ</div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="faq-block">
+        <h2>Common questions</h2>
+        <details class="faq-item">
+          <summary>Is membership really free?</summary>
+          <p>Yes. R0 forever. No trial period, no hidden fees. You get the weekly plan, group sessions, and community access at no cost.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to be fast to join?</summary>
+          <p>No. Every pace is welcome — from first 5K to marathon training. We group by effort so nobody gets left behind or held back.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where and when do we meet?</summary>
+          <p>Meeting details change with the plan — check <a href="#today">Today’s Session</a> for the current meet line, or ask in the <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp group</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What should I bring?</summary>
+          <p>Running shoes, water, and reflective kit for early mornings. On long-run days, carry extra fluid and a phone for the <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp group</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I join the WhatsApp group?</summary>
+          <p>Join directly here: <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">C-Boys WhatsApp group</a>. You can also email <a href="mailto:Cboysrunningclub@gmail.com">Cboysrunningclub@gmail.com</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINISH -->
+  <section class="block" id="join">
+    <div class="wrap">
+      <div class="finish">
+        <h2>Cross the start line.</h2>
+        <p>Sign up in under a minute. Get today's session, this week's plan, and a pack waiting at the gate.</p>
+        <form class="join-form" id="join-form" action="https://formsubmit.co/Cboysrunningclub@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="C-Boys Running Club — New member signup">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" id="join-next" value="">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="name" placeholder="Full name" required autocomplete="name">
+          <input type="email" name="email" placeholder="Email address" required autocomplete="email">
+          <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" inputmode="tel">
+          <button type="submit">Join Free →</button>
+        </form>
+        <div class="join-success" id="join-success" role="status">
+          <p>You're in. Check your inbox, then join the <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;">WhatsApp group</a>.</p>
+        </div>
+        <div class="finish-note">Free forever · No credit card · Cancel anytime (you won't want to)</div>
+        <p class="finish-privacy">By joining, you agree to our <a href="./terms.html" style="color:inherit;text-decoration:underline;">Terms of Use</a> and <a href="./privacy.html" style="color:inherit;text-decoration:underline;">Privacy Policy</a>. We use your name, email, and phone number for club updates, session plans, and WhatsApp invites only. Email <a href="mailto:Cboysrunningclub@gmail.com" style="color:inherit;text-decoration:underline;">Cboysrunningclub@gmail.com</a> to opt out anytime.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+        <span>C-BOYS RUNNING CLUB</span>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Club</h5>
+          <a href="#today">Today's Session</a>
+          <a href="#week">Weekly Plan</a>
+          <a href="#membership">Membership</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h5>Connect</h5>
+          <a href="https://www.instagram.com/cboys_running_club/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
+        </div>
+        <div class="foot-col">
+          <h5>Info</h5>
+          <a href="#safety">Safety Guide</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Use</a>
+          <a href="mailto:Cboysrunningclub@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 C-Boys Running Club. Free membership, always.</span>
+      <span><a href="./privacy.html">Privacy Policy</a> · <a href="./terms.html">Terms of Use</a> · <a href="./admin.html">Admin</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="./config.js"></script>
+<script src="./js/store.js"></script>
+<script>
+  const nav = document.getElementById('nav');
+  const navLinks = document.getElementById('nav-links');
+  const navToggle = document.getElementById('nav-toggle');
+  const joinForm = document.getElementById('join-form');
+  const joinNext = document.getElementById('join-next');
+  const joinSuccess = document.getElementById('join-success');
+  const weekGrid = document.getElementById('week-grid');
+  const communityFeed = document.getElementById('community-feed');
+  const communityForm = document.getElementById('community-form');
+  const communityStatus = document.getElementById('community-status');
+
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+
+  function escapeHtml(str) {
+    return String(str)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+
+  function renderWeek(weekPlan, dayIndex) {
+    const order = ['1', '2', '3', '4', '5', '6', '0'];
+    weekGrid.innerHTML = order.map((day, idx) => {
+      const item = weekPlan[day] || {};
+      const restClass = item.rest ? ' rest' : '';
+      const todayClass = Number(day) === dayIndex ? ' is-today' : '';
+      const tagType = item.tagType || 'easy';
+      return `
+        <div class="day-card${restClass}${todayClass}" data-day="${day}">
+          <div class="bib-num">№ ${String(301 + idx)}</div>
+          <div class="day-name">${escapeHtml(item.label || '')}</div>
+          <div class="day-type">
+            <span class="tag ${escapeHtml(tagType)}">${escapeHtml(item.tag || '')}</span>
+            <div class="day-dist">${escapeHtml(item.dist || '')}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderSession(weekPlan, dayIndex) {
+    const session = weekPlan[String(dayIndex)] || weekPlan[dayIndex] || {};
+    const today = new Date();
+    const dayLabel = today.toLocaleDateString('en-GB', {
+      weekday: 'long',
+      day: '2-digit',
+      month: 'short'
+    }).toUpperCase();
+
+    setText('session-day', dayLabel);
+    setText('session-title', session.title || 'Training Day');
+    setText('session-desc', session.desc || '');
+    setText('session-dist', session.dist || '—');
+    setText('session-pace', session.pace || '—');
+    setText('session-dur', session.dur || '—');
+    setText('session-clock', session.clock || '—');
+    setText('session-meet', session.meet || 'Track Gate · Kimberley');
+  }
+
+  function renderCommunity(data) {
+    const posts = (data.community || []).filter((p) => p.approved !== false);
+    const members = Number(data.stats?.members || posts.length || 0);
+    const km = Number(data.stats?.kmMonth || 0);
+    const sessions = Number(data.stats?.sessionsWeek || 4);
+
+    setText('stat-members-view', members.toLocaleString('en-ZA'));
+    setText('stat-km-view', km.toLocaleString('en-ZA'));
+    setText('stat-sessions-view', String(sessions));
+    setText('hero-stat-members', members.toLocaleString('en-ZA'));
+    setText('hero-stat-km', km.toLocaleString('en-ZA'));
+    setText('hero-stat-sessions', String(sessions));
+    setText('community-heading', members > 0
+      ? `${members} runners. One pace line for everyone.`
+      : 'The pack is building. Be voice one.');
+
+    if (!posts.length) {
+      communityFeed.innerHTML = `<div class="community-empty">No member posts yet. Share a race story, a first 5K, or why you showed up — this wall is live.</div>`;
+      return;
+    }
+
+    communityFeed.innerHTML = posts.slice(0, 9).map((post) => {
+      const when = post.createdAt
+        ? new Date(post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
+        : '';
+      return `
+        <div class="quote">
+          <p>${escapeHtml(post.message)}</p>
+          <div class="who">${escapeHtml(post.name)} <span>· ${escapeHtml(when)}</span></div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  async function bootSite() {
+    const data = await CboysStore.loadData();
+    const dayIndex = new Date().getDay();
+    renderWeek(data.weekPlan || {}, dayIndex);
+    renderSession(data.weekPlan || {}, dayIndex);
+    renderCommunity(data);
+  }
+
+  communityForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('community-name').value;
+    const message = document.getElementById('community-message').value;
+    communityStatus.className = 'form-status';
+    communityStatus.textContent = 'Posting…';
+    try {
+      const result = await CboysStore.addCommunityPost({ name, message });
+      renderCommunity(result.data);
+      communityForm.reset();
+      communityStatus.textContent = 'Posted — thanks for sharing with the pack.';
+    } catch (err) {
+      communityStatus.className = 'form-status err';
+      communityStatus.textContent = err.message || 'Could not post right now. Try again.';
+    }
+  });
+
+  if (joinNext) {
+    joinNext.value = window.location.origin + window.location.pathname + '?joined=1#join';
+  }
+
+  if (new URLSearchParams(window.location.search).get('joined') === '1') {
+    joinSuccess?.classList.add('show');
+    if (joinForm) joinForm.style.display = 'none';
+  }
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  navToggle?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  bootSite();
+</script>
+
 </body>
 </html>

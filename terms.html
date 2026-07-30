@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Terms of Use for C-Boys Running Club — website rules, participation liability, intellectual property, and external links.">
+<meta name="theme-color" content="#14161A">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fimorcreations.github.io/c-boys-running-club/terms.html">
+<title>Terms of Use · C-Boys Running Club</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+:root{
+  --asphalt:#14161A; --chalk:#F5F4F1; --chalk-dim:#C9C7C2; --red:#E4302A; --lime:#D6FF3C;
+  --grey:#9A9DA3; --line:rgba(245,244,241,0.12); --radius:2px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--chalk);color:var(--asphalt);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+h1,h2{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.01em;text-transform:uppercase;line-height:0.95;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:860px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;background:rgba(20,22,26,0.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-brand img{height:34px;width:auto;max-width:120px;object-fit:contain;}
+.nav-brand span{font-family:'Anton',sans-serif;color:var(--chalk);font-size:17px;letter-spacing:0.04em;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:var(--chalk-dim);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.nav-links a:hover{color:var(--chalk);}
+.nav-cta{background:var(--red);color:var(--chalk);padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);}
+.nav-toggle{display:none;background:none;border:none;color:var(--chalk);font-size:24px;cursor:pointer;}
+.nav-link-cta{display:none;background:var(--red);color:var(--chalk)!important;padding:12px 18px;text-align:center;border-radius:var(--radius);margin-top:8px;}
+.nav-links.open{display:flex;position:fixed;inset:72px 20px auto;flex-direction:column;gap:18px;background:rgba(20,22,26,0.97);border:1px solid var(--line);border-radius:6px;padding:24px;}
+@media(max-width:860px){
+  .nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+  .nav-cta{display:none;}
+  .nav-link-cta{display:block;}
+  .nav-links.open{display:flex;}
+}
+
+.page-hero{background:var(--asphalt);color:var(--chalk);padding:130px 0 56px;}
+.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.15em;color:var(--lime);text-transform:uppercase;margin-bottom:16px;}
+.page-hero h1{font-size:clamp(42px,7vw,72px);}
+.page-hero p{margin-top:16px;color:var(--chalk-dim);font-size:15.5px;line-height:1.6;max-width:560px;}
+.meta{margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--grey);}
+
+.content{padding:48px 0 80px;}
+.content h2{font-size:clamp(26px,3.5vw,34px);margin:34px 0 14px;}
+.content p,.content li{font-size:15px;line-height:1.7;color:#3f434a;}
+.content ul{padding-left:20px;margin:10px 0 16px;}
+.content li{margin-bottom:8px;}
+.content a{color:var(--red);text-decoration:underline;text-underline-offset:3px;}
+.note{
+  background:#fff;border:1px solid rgba(20,22,26,0.1);border-radius:4px;padding:18px 18px;
+  margin:18px 0 8px;font-size:14.5px;line-height:1.65;color:#54575e;
+}
+
+footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;align-items:center;gap:12px;}
+.foot-brand img{height:38px;width:auto;max-width:140px;object-fit:contain;}
+.foot-brand span{font-family:'Anton',sans-serif;color:var(--chalk);font-size:18px;}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap;}
+.foot-col h5{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:12px;}
+.foot-col a{display:block;font-size:13.5px;color:var(--chalk-dim);margin-bottom:9px;}
+.foot-col a:hover{color:var(--chalk);}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12px;color:var(--grey);flex-wrap:wrap;gap:10px;}
+.foot-bottom a{color:var(--chalk-dim);text-decoration:underline;text-underline-offset:3px;}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="./">
+    <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+    <span>C-BOYS RC</span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="./#today">Today</a>
+    <a href="./#week">The Plan</a>
+    <a href="./#membership">Membership</a>
+    <a href="./#community">Community</a>
+    <a href="./#faq">FAQ</a>
+    <a href="./#join" class="nav-link-cta">Join Free</a>
+  </div>
+  <a href="./#join" class="nav-cta">Join Free</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Legal · South Africa</div>
+    <h1>Terms of Use</h1>
+    <p>These Terms govern your use of the C-Boys Running Club website and your participation in club runs, training sessions, and related community activities.</p>
+    <div class="meta">Last updated: 30 July 2026 · Governed by the laws of the Republic of South Africa</div>
+  </div>
+</header>
+
+<main class="content">
+  <div class="wrap">
+    <div class="note">
+      By using this website, submitting a join/contact form, or taking part in club activities, you agree to these Terms of Use and our
+      <a href="./privacy.html">Privacy Policy</a>. If you do not agree, please do not use the site or join club sessions.
+    </div>
+
+    <h2>1. About these Terms</h2>
+    <p>C-Boys Running Club (“we”, “us”, “our”) operates this website as a community running club based in Kimberley, South Africa. These Terms apply to all visitors and members. Personal information is handled under our <a href="./privacy.html">Privacy Policy</a> (POPIA).</p>
+
+    <h2>2. Acceptable use of the site</h2>
+    <p>You agree to use this website lawfully and respectfully. You may not:</p>
+    <ul>
+      <li>Attempt to hack, scrape, disrupt, overload, or interfere with the website, its forms, or related systems</li>
+      <li>Submit false, misleading, abusive, defamatory, or unlawful content via forms, community posts, or messages</li>
+      <li>Impersonate another person or misrepresent your affiliation with the club</li>
+      <li>Use the site to send spam, malware, or unsolicited commercial messages</li>
+      <li>Copy, republish, or commercially exploit club content without permission (see Intellectual Property below)</li>
+      <li>Use the site in any way that violates South African law or the rights of others</li>
+    </ul>
+    <p>We may remove content, restrict access, or refuse membership communications where we reasonably believe these Terms have been breached.</p>
+
+    <h2>3. Membership and club information</h2>
+    <p>Membership information, training plans, session details, and community features on this site are provided for general club purposes. Plans and session notes may change. Always follow on-the-day instructions from session leads and prioritise your own health and safety.</p>
+
+    <h2>4. Participation risk and liability disclaimer</h2>
+    <p><strong>Running and related training involve inherent risks</strong>, including but not limited to slips, falls, traffic, weather, dehydration, overexertion, muscle injury, collision with others, and in rare cases serious injury or death.</p>
+    <p>By joining club runs, training sessions, events, or group activities (whether organised formally or informally through the club), you acknowledge and agree that:</p>
+    <ul>
+      <li>You participate voluntarily and at your own risk</li>
+      <li>You are responsible for assessing your fitness, health, equipment, and readiness to take part</li>
+      <li>You should obtain medical advice if you have any condition that may make running unsafe</li>
+      <li>You will follow safety guidance, pace-group instructions, and applicable road/track rules</li>
+      <li>To the fullest extent permitted by South African law, C-Boys Running Club, its organisers, coordinators, captains, volunteers, and members are not liable for any loss, injury, damage, claim, or expense arising from your participation in club activities or reliance on website content, except where liability cannot legally be excluded (including liability for gross negligence where applicable law requires)</li>
+    </ul>
+    <p>Parents or guardians are responsible for supervising and consenting to participation by minors.</p>
+
+    <h2>5. Intellectual property</h2>
+    <p>Unless otherwise stated, the following belong to C-Boys Running Club or are used under licence:</p>
+    <ul>
+      <li>Website design, text, logos, branding, and layout</li>
+      <li>Training plans, session copy, and club materials published on the site</li>
+      <li>Photographs, graphics, and media displayed on the site</li>
+    </ul>
+    <p>You may view and share links to the site for personal, non-commercial purposes. You may not copy, modify, distribute, sell, or create derivative works from site content or photos without prior written permission from the club, except where South African law expressly allows (for example fair dealing for criticism or review, where applicable).</p>
+    <p>If you submit photos, stories, or other content to the club (including community posts), you confirm you have the right to share them and grant us a non-exclusive licence to display them in club communications and on this website.</p>
+
+    <h2>6. External links disclaimer</h2>
+    <p>This website may link to third-party services and platforms, including WhatsApp, Instagram, email providers, maps, or hosting tools. Those sites and apps are not controlled by us.</p>
+    <ul>
+      <li>We are not responsible for the content, availability, security, or privacy practices of external sites</li>
+      <li>A link does not mean we endorse the third party or its products/services</li>
+      <li>Your use of external platforms is subject to their own terms and policies</li>
+    </ul>
+
+    <h2>7. Website availability and accuracy</h2>
+    <p>We aim to keep the site available and information reasonably accurate, but we do not guarantee uninterrupted access, error-free content, or that plans/schedules will always be up to date. The site is provided on an “as is” and “as available” basis to the extent permitted by law.</p>
+
+    <h2>8. Privacy</h2>
+    <p>How we collect and use personal information (including name, email, and phone number from join/contact forms) is explained in our <a href="./privacy.html">Privacy Policy</a>. By using the form, you also agree to that policy.</p>
+
+    <h2>9. Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. The “Last updated” date will change when we do. Continued use of the website after changes means you accept the updated Terms.</p>
+
+    <h2>10. Governing law</h2>
+    <p>These Terms are governed by the laws of the Republic of South Africa. Any dispute will be subject to the jurisdiction of the South African courts, without limiting any mandatory consumer protections that may apply.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions about these Terms:</p>
+    <ul>
+      <li>Email: <a href="mailto:Cboysrunningclub@gmail.com">Cboysrunningclub@gmail.com</a></li>
+      <li>WhatsApp: <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">Club group</a></li>
+      <li>Privacy questions: see our <a href="./privacy.html">Privacy Policy</a></li>
+    </ul>
+
+    <div class="note">
+      Related: <a href="./privacy.html">Privacy Policy</a> · <a href="./#join">Join the club</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="max-width:1180px;">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+        <span>C-BOYS RUNNING CLUB</span>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Club</h5>
+          <a href="./#today">Today's Session</a>
+          <a href="./#week">Weekly Plan</a>
+          <a href="./#membership">Membership</a>
+          <a href="./#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h5>Connect</h5>
+          <a href="https://www.instagram.com/cboys_running_club/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
+          <a href="mailto:Cboysrunningclub@gmail.com">Email</a>
+        </div>
+        <div class="foot-col">
+          <h5>Info</h5>
+          <a href="./#community">Community</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Use</a>
+          <a href="./#join">Join Free</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 C-Boys Running Club. Free membership, always.</span>
+      <span><a href="./privacy.html">Privacy Policy</a> · <a href="./terms.html">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navLinks = document.getElementById('nav-links');
+  const navToggle = document.getElementById('nav-toggle');
+  navToggle?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+    });
+  });
+</script>
+</body>
+</html>

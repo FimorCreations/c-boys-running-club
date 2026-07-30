@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for C-Boys Running Club — how we collect, use, and protect personal information under POPIA.">
+<meta name="theme-color" content="#14161A">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://fimorcreations.github.io/c-boys-running-club/privacy.html">
+<title>Privacy Policy · C-Boys Running Club</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+:root{
+  --asphalt:#14161A; --chalk:#F5F4F1; --chalk-dim:#C9C7C2; --red:#E4302A; --lime:#D6FF3C;
+  --grey:#9A9DA3; --line:rgba(245,244,241,0.12); --radius:2px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--chalk);color:var(--asphalt);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+h1,h2{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:0.01em;text-transform:uppercase;line-height:0.95;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:860px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;background:rgba(20,22,26,0.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-brand img{height:34px;width:auto;max-width:120px;object-fit:contain;}
+.nav-brand span{font-family:'Anton',sans-serif;color:var(--chalk);font-size:17px;letter-spacing:0.04em;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:var(--chalk-dim);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.nav-links a:hover,.nav-links a.is-active{color:var(--chalk);}
+.nav-cta{background:var(--red);color:var(--chalk);padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius);}
+.nav-toggle{display:none;background:none;border:none;color:var(--chalk);font-size:24px;cursor:pointer;}
+.nav-link-cta{display:none;background:var(--red);color:var(--chalk)!important;padding:12px 18px;text-align:center;border-radius:var(--radius);margin-top:8px;}
+.nav-links.open{display:flex;position:fixed;inset:72px 20px auto;flex-direction:column;gap:18px;background:rgba(20,22,26,0.97);border:1px solid var(--line);border-radius:6px;padding:24px;}
+@media(max-width:860px){
+  .nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+  .nav-cta{display:none;}
+  .nav-link-cta{display:block;}
+  .nav-links.open{display:flex;}
+}
+
+.page-hero{background:var(--asphalt);color:var(--chalk);padding:130px 0 56px;}
+.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.15em;color:var(--lime);text-transform:uppercase;margin-bottom:16px;}
+.page-hero h1{font-size:clamp(42px,7vw,72px);}
+.page-hero p{margin-top:16px;color:var(--chalk-dim);font-size:15.5px;line-height:1.6;max-width:560px;}
+.meta{margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;color:var(--grey);}
+
+.content{padding:48px 0 80px;}
+.content h2{font-size:clamp(26px,3.5vw,34px);margin:34px 0 14px;}
+.content p,.content li{font-size:15px;line-height:1.7;color:#3f434a;}
+.content ul{padding-left:20px;margin:10px 0 16px;}
+.content li{margin-bottom:8px;}
+.content a{color:var(--red);text-decoration:underline;text-underline-offset:3px;}
+.note{
+  background:#fff;border:1px solid rgba(20,22,26,0.1);border-radius:4px;padding:18px 18px;
+  margin:18px 0 8px;font-size:14.5px;line-height:1.65;color:#54575e;
+}
+
+footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line);}
+.foot-brand{display:flex;align-items:center;gap:12px;}
+.foot-brand img{height:38px;width:auto;max-width:140px;object-fit:contain;}
+.foot-brand span{font-family:'Anton',sans-serif;color:var(--chalk);font-size:18px;}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap;}
+.foot-col h5{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:12px;}
+.foot-col a{display:block;font-size:13.5px;color:var(--chalk-dim);margin-bottom:9px;}
+.foot-col a:hover{color:var(--chalk);}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12px;color:var(--grey);flex-wrap:wrap;gap:10px;}
+.foot-bottom a{color:var(--chalk-dim);text-decoration:underline;text-underline-offset:3px;}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="./">
+    <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+    <span>C-BOYS RC</span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="./#today">Today</a>
+    <a href="./#week">The Plan</a>
+    <a href="./#membership">Membership</a>
+    <a href="./#community">Community</a>
+    <a href="./#faq">FAQ</a>
+    <a href="./#join" class="nav-link-cta">Join Free</a>
+  </div>
+  <a href="./#join" class="nav-cta">Join Free</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Legal · POPIA</div>
+    <h1>Privacy Policy</h1>
+    <p>This policy explains how C-Boys Running Club collects, uses, stores, and protects personal information when you join or contact us through this website.</p>
+    <div class="meta">Last updated: 30 July 2026 · Responsible party: C-Boys Running Club (South Africa)</div>
+  </div>
+</header>
+
+<main class="content">
+  <div class="wrap">
+    <div class="note">
+      We process personal information in line with South Africa’s Protection of Personal Information Act 4 of 2013 (POPIA). By submitting our join/contact form, you consent to the processing described below for club membership and communication purposes.
+    </div>
+
+    <h2>1. Who we are</h2>
+    <p>C-Boys Running Club (“we”, “us”, “our”) is a community running club based in Kimberley, South Africa. For privacy questions, contact us at <a href="mailto:Cboysrunningclub@gmail.com">Cboysrunningclub@gmail.com</a>.</p>
+
+    <h2>2. What information we collect</h2>
+    <p>Through our join/contact form and related club channels, we may collect:</p>
+    <ul>
+      <li>Full name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>Any message or details you choose to include in a form submission</li>
+      <li>Basic technical data such as browser type, device type, and pages visited (through standard website/hosting logs or cookies, where used)</li>
+    </ul>
+
+    <h2>3. Lawful processing (POPIA)</h2>
+    <p>We process personal information on one or more of these lawful bases:</p>
+    <ul>
+      <li><strong>Consent</strong> — you submit the form and agree to be contacted about club membership, sessions, and updates</li>
+      <li><strong>Legitimate interests</strong> — operating a community running club, organising sessions, and keeping members informed, in a way that does not override your rights</li>
+      <li><strong>Contract / membership administration</strong> — managing your free membership and related club communications when you join</li>
+    </ul>
+    <p>We only collect information that is adequate, relevant, and not excessive for these purposes.</p>
+
+    <h2>4. How we use your information</h2>
+    <p>We use your information to:</p>
+    <ul>
+      <li>Register and manage free club membership</li>
+      <li>Send session plans, club notices, and WhatsApp/group invites</li>
+      <li>Respond to contact or support requests</li>
+      <li>Improve the website experience and keep the club running safely</li>
+    </ul>
+    <p>We do <strong>not</strong> sell your personal information.</p>
+
+    <h2>5. Sharing with third parties</h2>
+    <p>We may share limited personal information with trusted service providers only where needed to run the club website and communications, for example:</p>
+    <ul>
+      <li>Email/form delivery providers (such as FormSubmit or similar form processors)</li>
+      <li>Website hosting providers (for example GitHub Pages / Netlify)</li>
+      <li>Messaging platforms you choose to join (such as WhatsApp), according to those platforms’ own terms</li>
+    </ul>
+    <p>These parties process information on our behalf or as independent operators of their platforms. We do not authorise them to use your details for unrelated marketing.</p>
+
+    <h2>6. Data retention</h2>
+    <p>We keep personal information only for as long as needed to manage membership and club communications, or as required by law. As a guide:</p>
+    <ul>
+      <li>Active member contact details are kept while you remain involved with the club</li>
+      <li>If you ask to leave / opt out, we remove or suppress your contact details from active mailing lists within a reasonable period</li>
+      <li>Backup or system logs held by hosting/form providers may persist for a limited technical period according to those providers’ policies</li>
+    </ul>
+
+    <h2>7. Your rights as a data subject (POPIA)</h2>
+    <p>Subject to POPIA, you may request to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Correct or update inaccurate information</li>
+      <li>Object to certain processing, or withdraw consent where processing is consent-based</li>
+      <li>Request deletion or restriction of your information where appropriate</li>
+      <li>Lodge a complaint with the Information Regulator (South Africa)</li>
+    </ul>
+    <p>To exercise these rights, email <a href="mailto:Cboysrunningclub@gmail.com">Cboysrunningclub@gmail.com</a> with the subject line “POPIA request”. We will respond within a reasonable time.</p>
+    <p>Information Regulator contact details are available at <a href="https://inforegulator.org.za" target="_blank" rel="noopener noreferrer">inforegulator.org.za</a>.</p>
+
+    <h2>8. Security</h2>
+    <p>We take reasonable technical and organisational steps to protect personal information against loss, misuse, and unauthorised access. No online transmission is completely secure, so please avoid sending sensitive information you do not need to share for club membership.</p>
+
+    <h2>9. Cookies and similar technologies</h2>
+    <p>This website may use essential cookies or similar storage to make pages work (for example remembering form success states, admin/session preferences, or live-content settings). We may also use basic analytics or hosting logs that help us understand traffic.</p>
+    <ul>
+      <li><strong>Essential cookies/storage</strong> — required for core site functions</li>
+      <li><strong>Preference / functional storage</strong> — may remember settings on your device</li>
+      <li><strong>Analytics / hosting logs</strong> — if enabled by our host, used to monitor performance and reliability</li>
+    </ul>
+    <p>You can control cookies through your browser settings. Blocking some cookies may affect site features.</p>
+
+    <h2>10. Children</h2>
+    <p>If a minor joins club activities, a parent or guardian should supervise registration and communications. Contact us if you believe we have collected a child’s information without appropriate consent.</p>
+
+    <h2>11. Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. The “Last updated” date at the top will change when we do. Continued use of the site after updates means you accept the revised policy.</p>
+
+    <h2>12. Contact for data queries</h2>
+    <p>For privacy or POPIA requests:</p>
+    <ul>
+      <li>Email: <a href="mailto:Cboysrunningclub@gmail.com">Cboysrunningclub@gmail.com</a></li>
+      <li>WhatsApp group (general club chat): <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">Join WhatsApp</a></li>
+      <li>Instagram: <a href="https://www.instagram.com/cboys_running_club/" target="_blank" rel="noopener noreferrer">@cboys_running_club</a></li>
+    </ul>
+
+    <div class="note">
+      Ready to join the pack? Membership is free. <a href="./#join">Go to the join form</a>. Also read our <a href="./terms.html">Terms of Use</a>.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="max-width:1180px;">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+        <span>C-BOYS RUNNING CLUB</span>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Club</h5>
+          <a href="./#today">Today's Session</a>
+          <a href="./#week">Weekly Plan</a>
+          <a href="./#membership">Membership</a>
+          <a href="./#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h5>Connect</h5>
+          <a href="https://www.instagram.com/cboys_running_club/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
+          <a href="mailto:Cboysrunningclub@gmail.com">Email</a>
+        </div>
+        <div class="foot-col">
+          <h5>Info</h5>
+          <a href="./#community">Community</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Use</a>
+          <a href="./#join">Join Free</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 C-Boys Running Club. Free membership, always.</span>
+      <span><a href="./privacy.html">Privacy Policy</a> · <a href="./terms.html">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navLinks = document.getElementById('nav-links');
+  const navToggle = document.getElementById('nav-toggle');
+  navToggle?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+    });
+  });
+</script>
+</body>
+</html>

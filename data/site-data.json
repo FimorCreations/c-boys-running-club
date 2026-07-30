@@ -1,0 +1,102 @@
+{
+  "weekPlan": {
+    "0": {
+      "label": "Sun",
+      "tag": "Rest",
+      "tagType": "restt",
+      "dist": "Stretch & recover",
+      "title": "Rest & Recover",
+      "desc": "Off-feet recovery day. Stretch, foam roll, walk if you feel good, and get sleep. Show up fresh for Monday.",
+      "pace": "—",
+      "dur": "Rest",
+      "clock": "—",
+      "meet": "No group session · Recover well",
+      "rest": true
+    },
+    "1": {
+      "label": "Mon",
+      "tag": "Easy",
+      "tagType": "easy",
+      "dist": "5 km · conversational",
+      "title": "Easy Run",
+      "desc": "Keep it conversational the whole way. You should be able to speak in full sentences. Build the base without stacking fatigue.",
+      "pace": "Easy",
+      "dur": "30–35 min",
+      "clock": "00:35:00",
+      "meet": "Group meets 05:30 · Track Gate",
+      "rest": false
+    },
+    "2": {
+      "label": "Tue",
+      "tag": "Intervals",
+      "tagType": "hard",
+      "dist": "6 × 400m @ 4:50/km",
+      "title": "Intervals",
+      "desc": "Warm up easy, then 6 × 400m at a hard but controlled effort with equal jog recovery. Cool down easy to finish.",
+      "pace": "4:50",
+      "dur": "45 min",
+      "clock": "00:45:00",
+      "meet": "Group meets 05:30 · Track Gate",
+      "rest": false
+    },
+    "3": {
+      "label": "Wed",
+      "tag": "Cross Train",
+      "tagType": "long",
+      "dist": "30 min · bike or swim",
+      "title": "Cross Train",
+      "desc": "Bike, swim, or a light gym circuit. Keep the effort aerobic — you should finish feeling refreshed, not wiped.",
+      "pace": "Aerobic",
+      "dur": "30 min",
+      "clock": "00:30:00",
+      "meet": "Self-guided · Optional easy shakeout",
+      "rest": false
+    },
+    "4": {
+      "label": "Thu",
+      "tag": "Tempo",
+      "tagType": "hard",
+      "dist": "8.2 km @ 5:40/km",
+      "title": "Tempo Run",
+      "desc": "15 min easy warm-up, then 20 minutes at a comfortably hard pace — short sentences, not paragraphs. Close with a 10 min easy cool-down.",
+      "pace": "5:40",
+      "dur": "45 min",
+      "clock": "00:45:00",
+      "meet": "Group meets 05:30 · Track Gate",
+      "rest": false
+    },
+    "5": {
+      "label": "Fri",
+      "tag": "Easy",
+      "tagType": "easy",
+      "dist": "4 km · shakeout",
+      "title": "Easy Shakeout",
+      "desc": "Short and light. Loosen the legs, stay relaxed, and save energy for Saturday's long run.",
+      "pace": "Easy",
+      "dur": "25 min",
+      "clock": "00:25:00",
+      "meet": "Group meets 05:30 · Track Gate",
+      "rest": false
+    },
+    "6": {
+      "label": "Sat",
+      "tag": "Long Run",
+      "tagType": "long",
+      "dist": "14 km · easy effort",
+      "title": "Long Run",
+      "desc": "Steady easy effort. Fuel early, sip often, and finish feeling like you could add another easy kilometre.",
+      "pace": "Easy",
+      "dur": "90–110 min",
+      "clock": "01:40:00",
+      "meet": "Group meets 05:30 · Track Gate",
+      "rest": false
+    }
+  },
+  "community": [],
+  "stats": {
+    "members": 0,
+    "kmMonth": 0,
+    "sessionsWeek": 4
+  },
+  "updatedAt": null
+}
