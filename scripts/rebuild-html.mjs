@@ -15,7 +15,7 @@ html = html.replace(/src="data:image\/png;base64,[^"]+"/g, (match, offset) => {
 });
 
 const headInsert = `
-<meta name="description" content="C-Boys Running Club — free membership, weekly training plans, and group runs for every pace in Kimberley.">
+<meta name="description" content="C-Boys Running Club — free membership, weekly training plans, and group runs for every pace.">
 <meta name="theme-color" content="#14161A">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 `;
