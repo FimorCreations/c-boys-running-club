@@ -7,16 +7,16 @@
 <meta name="description" content="C-Boys Running Club — free membership, weekly training plans, and group runs for every pace in Kimberley.">
 <meta name="theme-color" content="#14161A">
 <meta name="author" content="C-Boys Running Club">
-<link rel="canonical" href="https://fimorcreations.github.io/c-boys-running-club/">
+<link rel="canonical" href="https://www.cboysrunningclub.co.za/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="C-Boys Running Club — Free Membership">
-<meta property="og:description" content="Free weekly training plans, group runs from 05:30 at Track Gate, Kimberley. Every pace welcome.">
-<meta property="og:image" content="https://fimorcreations.github.io/c-boys-running-club/assets/og-share.jpg">
-<meta property="og:url" content="https://fimorcreations.github.io/c-boys-running-club/">
+<meta property="og:description" content="Free weekly training plans and group runs in Kimberley. Every pace welcome.">
+<meta property="og:image" content="https://www.cboysrunningclub.co.za/assets/og-share.jpg">
+<meta property="og:url" content="https://www.cboysrunningclub.co.za/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="C-Boys Running Club — Free Membership">
 <meta name="twitter:description" content="Free weekly training plans and group runs for every pace in Kimberley.">
-<meta name="twitter:image" content="https://fimorcreations.github.io/c-boys-running-club/assets/og-share.jpg">
+<meta name="twitter:image" content="https://www.cboysrunningclub.co.za/assets/og-share.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <title>C-Boys Running Club — Free Membership</title>
 <style>
@@ -87,7 +87,7 @@ a{color:inherit;text-decoration:none;}
   transition:background .2s, transform .15s;
 }
 .nav-cta:hover{background:#ff3d36;transform:translateY(-1px);}
-.nav-toggle{display:none;background:none;border:none;color:var(--chalk);font-size:24px;cursor:pointer;padding:6px;}
+.nav-toggle{display:none;background:none;border:none;color:var(--chalk);font-size:24px;cursor:pointer;padding:10px;line-height:1;min-width:44px;min-height:44px;}
 .nav-link-cta{
   display:none;background:var(--red);color:var(--chalk)!important;padding:12px 18px;text-align:center;
   border-radius:var(--radius);margin-top:8px;
@@ -109,7 +109,19 @@ a{color:inherit;text-decoration:none;}
   .stopwatch{width:180px;height:180px;}
   .stopwatch .time{font-size:30px;}
   .finish{padding:48px 22px;}
-  .join-form input{width:100%;max-width:100%;}
+  /* 16px keeps iOS Safari from zooming the page on focus */
+  .join-form input,.join-form button{width:100%;max-width:100%;font-size:16px;}
+  .foot-links{gap:26px 32px;}
+  .km-marker{padding:44px 0 32px;}
+  section.block{padding:10px 0 64px;}
+}
+@media(max-width:420px){
+  .hero-eyebrow{font-size:11px;letter-spacing:0.1em;}
+  .stopwatch{width:170px;height:170px;padding:0 20px;}
+  .stopwatch .time{font-size:27px;}
+  .foot-links{gap:22px 26px;}
+  .foot-brand span{font-size:16px;}
+  .finish::before{font-size:120px;}
 }
 
 /* ---------- HERO ---------- */
@@ -262,10 +274,11 @@ section.block{padding:10px 0 90px;}
   align-self:center;justify-self:center;
   border:1px solid var(--line);border-radius:50%;
   width:220px;height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  padding:0 26px;text-align:center;max-width:100%;
   position:relative;z-index:2;
 }
 .stopwatch .time{font-family:'Space Mono',monospace;font-size:38px;font-weight:700;letter-spacing:0.02em;}
-.stopwatch .cap{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);margin-top:8px;}
+.stopwatch .cap{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-top:8px;line-height:1.5;overflow-wrap:anywhere;}
 .session-where{
   margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
   display:flex;flex-wrap:wrap;gap:18px 28px;position:relative;z-index:2;
@@ -306,6 +319,7 @@ section.block{padding:10px 0 90px;}
 .day-name{
   font-family:'Anton',sans-serif;font-size:20px;margin-top:6px;
 }
+.day-card,.day-dist,.tag{overflow-wrap:anywhere;}
 .day-type{
   margin-top:auto;padding-top:14px;
 }
@@ -367,7 +381,7 @@ section.block{padding:10px 0 90px;}
 .community-form .form-note{grid-column:1 / -1;color:var(--grey);font-size:13px;margin-bottom:6px;}
 .community-form input,.community-form textarea{
   width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
-  color:var(--chalk);border-radius:2px;padding:14px 16px;font:inherit;
+  color:var(--chalk);border-radius:2px;padding:14px 16px;font:inherit;font-size:16px;
 }
 .community-form textarea{min-height:52px;resize:vertical;}
 .community-form button{
@@ -476,7 +490,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
 
 <nav class="nav" id="nav">
   <a class="nav-brand" href="./">
-    <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+    <img src="assets/logo-mark.png" alt="C-Boys Running Club logo">
     <span>C-BOYS RC</span>
   </a>
   <div class="nav-links" id="nav-links">
@@ -531,7 +545,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
       </div>
     </div>
   </div>
-  <div class="hero-logo-wrap" aria-hidden="true"><img class="hero-logo-mark" src="assets/logo-hero.svg" alt="" loading="eager" decoding="async"></div>
+  <div class="hero-logo-wrap" aria-hidden="true"><img class="hero-logo-mark" src="assets/logo-hero.png" alt="" loading="eager" decoding="async"></div>
 </header>
 
 <!-- ROUTE SPINE -->
@@ -609,15 +623,11 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
           </div>
           <div class="perk">
             <div class="perk-num">02</div>
-            <div><h4>Group sessions, 4x a week</h4><p>Meet the pack at the track gate — every pace welcome, from first-5k to marathon.</p></div>
+            <div><h4>Group sessions, 4x a week</h4><p>Train with the pack several times a week — every pace welcome, from first-5k to marathon.</p></div>
           </div>
           <div class="perk">
             <div class="perk-num">03</div>
-            <div><h4>Progress &amp; pace tracking</h4><p>Log your runs and watch your average pace and weekly distance improve over time.</p></div>
-          </div>
-          <div class="perk">
-            <div class="perk-num">04</div>
-            <div><h4>Club kit discounts</h4><p>Member pricing on C-Boys singlets, caps and race-day gear.</p></div>
+            <div><h4>WhatsApp pack support</h4><p>Join the group chat for meet updates, race tips, and encouragement between sessions.</p></div>
           </div>
         </div>
       </div>
@@ -725,7 +735,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
     <div class="wrap">
       <div class="finish">
         <h2>Cross the start line.</h2>
-        <p>Sign up in under a minute. Get today's session, this week's plan, and a pack waiting at the gate.</p>
+        <p>Sign up in under a minute. Get today's session, this week's plan, and a pack ready to run with you.</p>
         <form class="join-form" id="join-form" action="https://formsubmit.co/Cboysrunningclub@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="C-Boys Running Club — New member signup">
           <input type="hidden" name="_template" value="table">
@@ -752,7 +762,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img src="assets/logo-mark.svg" alt="C-Boys Running Club logo">
+        <img src="assets/logo-mark.png" alt="C-Boys Running Club logo">
         <span>C-BOYS RUNNING CLUB</span>
       </div>
       <div class="foot-links">
@@ -767,6 +777,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
           <h5>Connect</h5>
           <a href="https://www.instagram.com/cboys_running_club/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://chat.whatsapp.com/LWpYRul8sg53eSA1vRVAA9" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
+          <a href="mailto:Cboysrunningclub@gmail.com">Email</a>
         </div>
         <div class="foot-col">
           <h5>Info</h5>
@@ -847,7 +858,7 @@ footer{background:var(--asphalt);color:var(--chalk-dim);padding:50px 0 30px;marg
     setText('session-pace', session.pace || '—');
     setText('session-dur', session.dur || '—');
     setText('session-clock', session.clock || '—');
-    setText('session-meet', session.meet || 'Track Gate · Kimberley');
+    setText('session-meet', session.meet || 'Check WhatsApp for today’s meet');
   }
 
   function renderCommunity(data) {

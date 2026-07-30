@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14161A">
 <title>C-Boys Admin · Weekly Plan & Community</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
@@ -12,7 +13,7 @@
     --asphalt:#14161A; --chalk:#F5F4F1; --chalk-dim:#C9C7C2; --red:#E4302A; --lime:#D6FF3C; --line:rgba(245,244,241,.12); --grey:#9A9DA3;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Inter,sans-serif;background:var(--asphalt);color:var(--chalk);min-height:100vh}
+  body{font-family:Inter,sans-serif;background:var(--asphalt);color:var(--chalk);min-height:100vh;overflow-x:hidden}
   h1,h2,h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em}
   .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
   .top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:28px}
@@ -51,7 +52,18 @@
   .hint{font-size:12.5px;line-height:1.55;color:var(--chalk-dim);margin-top:8px}
   code{font-family:'Space Mono',monospace;font-size:12px;color:var(--lime)}
   .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  @media(max-width:640px){.stats-row{grid-template-columns:1fr}}
+  @media(max-width:640px){
+    .stats-row{grid-template-columns:1fr}
+    .wrap{padding:22px 16px 48px}
+    .card{padding:18px 16px}
+    .top h1{font-size:34px!important}
+    .card h2{font-size:24px!important}
+    .day-head h3{font-size:24px}
+    .actions{gap:8px}
+    .actions button,.actions .btn{flex:1 1 100%;text-align:center;justify-content:center}
+  }
+  .post p{overflow-wrap:anywhere}
+  code{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
